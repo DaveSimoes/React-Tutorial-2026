@@ -2304,7 +2304,7 @@ If you found this tutorial helpful, please consider giving it a **star**! Your s
 
 <div align="center">
   <p>
-    <strong>MIT License</strong> © 2026 Dave Simões
+    <strong>MIT License</strong> © 2026 David Simoes
   </p>
   <p style="font-size: 14px; margin-top: 10px;">
     Feel free to use this tutorial for learning, teaching, and sharing knowledge with others.
