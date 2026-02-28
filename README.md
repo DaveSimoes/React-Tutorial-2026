@@ -1,4 +1,30 @@
-@@ -2301,25 +2301,52 @@ If you found this tutorial helpful, please consider giving it a **star**! Your s
+
+## 🌐 Documentation Website
+
+This repository includes an English documentation website in `docs/` designed for community learning from beginner to advanced React topics, including React 2026 trends and a built-in light/dark mode toggle.
+
+To preview locally:
+
+```bash
+cd docs
+python3 -m http.server 4173
+```
+
+Then open `http://localhost:4173`.
+
+To generate a deploy-ready folder for Netlify:
+
+```bash
+npm run build
+```
+
+This command creates `dist/` with the full static documentation site, so you can deploy with:
+
+```bash
+netlify deploy --prod --dir=dist
+```
+
+   If you found this tutorial helpful, please consider giving it a  ✨
 ---
 
 ## License
@@ -27,27 +53,3 @@
 
 ---
 
-## 🌐 Documentation Website
-
-This repository includes an English documentation website in `docs/` designed for community learning from beginner to advanced React topics, including React 2026 trends and a built-in light/dark mode toggle.
-
-To preview locally:
-
-```bash
-cd docs
-python3 -m http.server 4173
-```
-
-Then open `http://localhost:4173`.
-
-To generate a deploy-ready folder for Netlify:
-
-```bash
-npm run build
-```
-
-This command creates `dist/` with the full static documentation site, so you can deploy with:
-
-```bash
-netlify deploy --prod --dir=dist
-```
