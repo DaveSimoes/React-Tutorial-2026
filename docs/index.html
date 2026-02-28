@@ -1,59 +1,276 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" data-theme="light">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>React Tutorial 2026 Documentation</title>
-    <link rel="stylesheet" href="styles.css">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Complete React JS learning documentation from beginner to advanced with React 2026 features." />
+  <title>React Tutorial 2026 — Community Documentation</title>
+  <link rel="stylesheet" href="styles.css" />
 </head>
 <body>
-    <header>
-        <h1>React Tutorial 2026 Documentation</h1>
-        <nav>
-            <ul>
-                <li><a href="#overview">Overview</a></li>
-                <li><a href="#installation">Installation</a></li>
-                <li><a href="#usage">Usage</a></li>
-                <li><a href="#examples">Examples</a></li>
-                <li><a href="#contributing">Contributing</a></li>
-                <li><a href="#faq">FAQ</a></li>
-            </ul>
-        </nav>
-    </header>
-    <main>
-        <section id="overview">
-            <h2>Overview</h2>
-            <p>This documentation explains how to use the React Tutorial 2026 repository.</p>
-        </section>
-        <section id="installation">
-            <h2>Installation</h2>
-            <p>Instructions on how to install the necessary tools and libraries.</p>
-        </section>
-        <section id="usage">
-            <h2>Usage</h2>
-            <p>Guide on how to use the tutorial steps.</p>
-        </section>
-        <section id="examples">
-            <h2>Examples</h2>
-            <p>Check out the following examples:</p>
-            <pre><code>const ExampleComponent = () => {
-  return <div>Hello, React!</div>;
-};
+  <header class="hero">
+    <div>
+      <p class="eyebrow">Community Edition</p>
+      <h1>React Tutorial 2026</h1>
+      <p class="subtitle">A complete React JS learning site in English — from first component to advanced architecture with 2026 features.</p>
+    </div>
+    <button id="themeToggle" class="theme-toggle" aria-label="Toggle dark mode">🌙 Dark mode</button>
+  </header>
 
-export default ExampleComponent;
-</code></pre>
-        </section>
-        <section id="contributing">
-            <h2>Contributing</h2>
-            <p>Instructions for contributing to the project.</p>
-        </section>
-        <section id="faq">
-            <h2>FAQ</h2>
-            <p>Common questions and answers related to the tutorial.</p>
-        </section>
+  <div class="layout">
+    <aside class="toc">
+      <h2>Contents</h2>
+      <a href="#getting-started">1. Getting Started</a>
+      <a href="#jsx-components">2. JSX & Components</a>
+      <a href="#props-state">3. Props & State</a>
+      <a href="#hooks">4. Hooks</a>
+      <a href="#forms">5. Forms & Validation</a>
+      <a href="#routing">6. Routing</a>
+      <a href="#data-fetching">7. Data Fetching</a>
+      <a href="#state-management">8. State Management</a>
+      <a href="#performance">9. Performance</a>
+      <a href="#testing">10. Testing</a>
+      <a href="#advanced">11. Advanced Patterns</a>
+      <a href="#react-2026">12. React 2026 Features</a>
+      <a href="#deployment">13. Netlify Deployment</a>
+      <a href="#community">14. Community Learning Path</a>
+    </aside>
+
+    <main>
+      <section id="getting-started">
+        <h2>1) Getting Started</h2>
+        <p>Start with Vite for a fast local development setup.</p>
+<pre><code>npm create vite@latest my-react-app -- --template react
+cd my-react-app
+npm install
+npm run dev</code></pre>
+      </section>
+
+      <section id="jsx-components">
+        <h2>2) JSX & Components</h2>
+        <p>JSX lets you write HTML-like syntax in JavaScript and compose reusable UI units.</p>
+<pre><code>function WelcomeCard({ name }) {
+  return (
+    &lt;article className="card"&gt;
+      &lt;h3&gt;Welcome, {name}!&lt;/h3&gt;
+      &lt;p&gt;You are learning React component composition.&lt;/p&gt;
+    &lt;/article&gt;
+  );
+}</code></pre>
+      </section>
+
+      <section id="props-state">
+        <h2>3) Props & State</h2>
+        <p>Props pass data down. State tracks local UI changes.</p>
+<pre><code>import { useState } from "react";
+
+export default function Counter({ step = 1 }) {
+  const [count, setCount] = useState(0);
+
+  return (
+    &lt;div&gt;
+      &lt;p&gt;Count: {count}&lt;/p&gt;
+      &lt;button onClick={() =&gt; setCount((c) =&gt; c + step)}&gt;+{step}&lt;/button&gt;
+    &lt;/div&gt;
+  );
+}</code></pre>
+      </section>
+
+      <section id="hooks">
+        <h2>4) Hooks</h2>
+        <p>Hooks help manage component logic: effects, memoization, refs, and reusable custom hooks.</p>
+<pre><code>import { useEffect, useState } from "react";
+
+function useOnlineStatus() {
+  const [online, setOnline] = useState(navigator.onLine);
+
+  useEffect(() =&gt; {
+    const on = () =&gt; setOnline(true);
+    const off = () =&gt; setOnline(false);
+    window.addEventListener("online", on);
+    window.addEventListener("offline", off);
+    return () =&gt; {
+      window.removeEventListener("online", on);
+      window.removeEventListener("offline", off);
+    };
+  }, []);
+
+  return online;
+}</code></pre>
+      </section>
+
+      <section id="forms">
+        <h2>5) Forms & Validation</h2>
+        <p>Use controlled inputs for predictable behavior and immediate validation feedback.</p>
+<pre><code>function EmailForm() {
+  const [email, setEmail] = useState("");
+  const isValid = /.+@.+\..+/.test(email);
+
+  return (
+    &lt;form&gt;
+      &lt;input value={email} onChange={(e) =&gt; setEmail(e.target.value)} /&gt;
+      {!isValid &amp;&amp; email &amp;&amp; &lt;small&gt;Enter a valid email&lt;/small&gt;}
+      &lt;button disabled={!isValid}&gt;Submit&lt;/button&gt;
+    &lt;/form&gt;
+  );
+}</code></pre>
+      </section>
+
+      <section id="routing">
+        <h2>6) Routing</h2>
+        <p>React Router organizes pages and nested layouts in single-page applications.</p>
+<pre><code>import { createBrowserRouter, RouterProvider } from "react-router-dom";
+
+const router = createBrowserRouter([
+  { path: "/", element: &lt;Home /&gt; },
+  { path: "/courses/:slug", element: &lt;CoursePage /&gt; }
+]);
+
+export default function App() {
+  return &lt;RouterProvider router={router} /&gt;;
+}</code></pre>
+      </section>
+
+      <section id="data-fetching">
+        <h2>7) Data Fetching</h2>
+        <p>Use loading and error states, and avoid race conditions with cleanup logic.</p>
+<pre><code>useEffect(() =&gt; {
+  const controller = new AbortController();
+
+  async function loadPosts() {
+    setStatus("loading");
+    try {
+      const res = await fetch("/api/posts", { signal: controller.signal });
+      setPosts(await res.json());
+      setStatus("success");
+    } catch (err) {
+      if (err.name !== "AbortError") setStatus("error");
+    }
+  }
+
+  loadPosts();
+  return () =&gt; controller.abort();
+}, []);</code></pre>
+      </section>
+
+      <section id="state-management">
+        <h2>8) State Management</h2>
+        <p>Start local, then scale with Context + reducer, or libraries like Redux Toolkit / Zustand.</p>
+<pre><code>const CartContext = createContext();
+
+function cartReducer(state, action) {
+  if (action.type === "add") {
+    return { ...state, items: [...state.items, action.payload] };
+  }
+  return state;
+}
+
+export function CartProvider({ children }) {
+  const [state, dispatch] = useReducer(cartReducer, { items: [] });
+  return &lt;CartContext.Provider value={{ state, dispatch }}&gt;{children}&lt;/CartContext.Provider&gt;;
+}</code></pre>
+      </section>
+
+      <section id="performance">
+        <h2>9) Performance</h2>
+        <p>Use React Profiler, code splitting, memoization, and virtualized lists for heavy UIs.</p>
+<pre><code>import { lazy, Suspense } from "react";
+
+const AnalyticsPanel = lazy(() =&gt; import("./AnalyticsPanel"));
+
+function Dashboard() {
+  return (
+    &lt;Suspense fallback={&lt;p&gt;Loading analytics...&lt;/p&gt;}&gt;
+      &lt;AnalyticsPanel /&gt;
+    &lt;/Suspense&gt;
+  );
+}</code></pre>
+      </section>
+
+      <section id="testing">
+        <h2>10) Testing</h2>
+        <p>Combine unit, integration, and end-to-end tests for confidence.</p>
+<pre><code>import { render, screen } from "@testing-library/react";
+import userEvent from "@testing-library/user-event";
+import Counter from "./Counter";
+
+test("increments count", async () =&gt; {
+  render(&lt;Counter step={2} /&gt;);
+  await userEvent.click(screen.getByRole("button", { name: "+2" }));
+  expect(screen.getByText("Count: 2")).toBeInTheDocument();
+});</code></pre>
+      </section>
+
+      <section id="advanced">
+        <h2>11) Advanced Patterns</h2>
+        <ul>
+          <li>Compound Components</li>
+          <li>Render Props</li>
+          <li>Headless UI components</li>
+          <li>Error Boundaries</li>
+          <li>Feature-based folder architecture</li>
+        </ul>
+<pre><code>function Modal({ children, open }) {
+  if (!open) return null;
+  return &lt;div role="dialog"&gt;{children}&lt;/div&gt;;
+}
+
+Modal.Header = function ModalHeader({ children }) {
+  return &lt;h3&gt;{children}&lt;/h3&gt;;
+};</code></pre>
+      </section>
+
+      <section id="react-2026">
+        <h2>12) React Features to Track in 2026</h2>
+        <p>Modern React in 2026 emphasizes server/client boundaries, concurrent rendering, and optimized data workflows.</p>
+        <ul>
+          <li><strong>Server Components maturity:</strong> cleaner server-only logic and smaller client bundles.</li>
+          <li><strong>Streaming-first rendering:</strong> improved perceived performance in full-stack apps.</li>
+          <li><strong>Compiler-aware patterns:</strong> APIs that work better with automatic optimization.</li>
+          <li><strong>Actions and async workflows:</strong> simpler mutation flows with reduced boilerplate.</li>
+          <li><strong>Improved DevTools profiling:</strong> better tracing for render and network bottlenecks.</li>
+        </ul>
+<pre><code>// Example server/client boundary in a full-stack React framework
+// Server component
+export default async function CourseList() {
+  const courses = await db.course.findMany();
+  return &lt;CourseGrid initialCourses={courses} /&gt;; // client component
+}</code></pre>
+      </section>
+
+      <section id="deployment">
+        <h2>13) Publish on Netlify</h2>
+        <p>This documentation site can be deployed as a static website.</p>
+<pre><code># from repository root
+npm install -g netlify-cli
+netlify login
+netlify deploy --dir=docs
+netlify deploy --prod --dir=docs</code></pre>
+        <p>Alternative: drag-and-drop the <code>docs</code> folder in the Netlify dashboard.</p>
+      </section>
+
+      <section id="community">
+        <h2>14) Community Learning Path</h2>
+        <ol>
+          <li><strong>Beginner (2–4 weeks):</strong> JSX, components, props, state, events, forms.</li>
+          <li><strong>Intermediate (4–8 weeks):</strong> hooks, router, async data, architecture, tests.</li>
+          <li><strong>Advanced (ongoing):</strong> performance, design systems, server components, observability.</li>
+        </ol>
+        <p>Recommended places to learn and contribute:</p>
+        <ul>
+          <li>React Official Docs</li>
+          <li>Reactiflux Discord</li>
+          <li>GitHub discussions in open-source React libraries</li>
+          <li>Local meetups and conference talks</li>
+        </ul>
+      </section>
     </main>
-    <footer>
-        <p>© 2026 React Tutorial. All rights reserved.</p>
-    </footer>
+  </div>
+
+  <footer>
+    <p>Built for the React community • 2026</p>
+  </footer>
+
+  <script src="app.js"></script>
 </body>
 </html>
