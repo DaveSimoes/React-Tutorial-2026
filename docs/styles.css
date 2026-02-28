@@ -1,0 +1,107 @@
+:root {
+  --bg: #f6f7fb;
+  --surface: #ffffff;
+  --text: #161b2b;
+  --muted: #5a6075;
+  --primary: #4f46e5;
+  --border: #dfe3f0;
+  --code-bg: #0f172a;
+  --code-text: #e2e8f0;
+}
+
+:root[data-theme="dark"] {
+  --bg: #090b12;
+  --surface: #111626;
+  --text: #edf2ff;
+  --muted: #9aa4c2;
+  --primary: #8b9bff;
+  --border: #25304f;
+  --code-bg: #060a15;
+  --code-text: #e6ecff;
+}
+
+* { box-sizing: border-box; }
+body {
+  margin: 0;
+  font-family: Inter, Segoe UI, Roboto, Arial, sans-serif;
+  background: var(--bg);
+  color: var(--text);
+  line-height: 1.6;
+}
+
+.hero {
+  display: flex;
+  justify-content: space-between;
+  gap: 1rem;
+  align-items: flex-start;
+  padding: 2rem 1.5rem;
+  border-bottom: 1px solid var(--border);
+}
+
+.eyebrow { color: var(--primary); margin: 0 0 0.5rem; font-weight: 700; }
+h1 { margin: 0; font-size: clamp(1.8rem, 3vw, 2.5rem); }
+.subtitle { max-width: 75ch; color: var(--muted); }
+
+.theme-toggle {
+  border: 1px solid var(--border);
+  background: var(--surface);
+  color: var(--text);
+  padding: 0.65rem 0.9rem;
+  border-radius: 0.7rem;
+  cursor: pointer;
+}
+
+.layout {
+  display: grid;
+  grid-template-columns: minmax(200px, 280px) minmax(0, 1fr);
+  gap: 1.25rem;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 1.25rem;
+}
+
+.toc {
+  position: sticky;
+  top: 1rem;
+  height: fit-content;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 0.9rem;
+  padding: 1rem;
+}
+
+.toc a {
+  display: block;
+  color: var(--muted);
+  text-decoration: none;
+  margin: 0.25rem 0;
+}
+
+main section {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 0.9rem;
+  padding: 1.15rem;
+  margin-bottom: 1rem;
+}
+
+h2 { margin-top: 0; }
+pre {
+  overflow-x: auto;
+  background: var(--code-bg);
+  color: var(--code-text);
+  border-radius: 0.8rem;
+  padding: 0.9rem;
+}
+
+footer {
+  text-align: center;
+  color: var(--muted);
+  padding: 2rem 1rem;
+}
+
+@media (max-width: 900px) {
+  .layout { grid-template-columns: 1fr; }
+  .toc { position: static; }
+  .hero { flex-direction: column; }
+}

@@ -2323,3 +2323,18 @@ If you found this tutorial helpful, please consider giving it a **star**! Your s
 ---
 
 **Happy Coding! 🚀**
+
+---
+
+## 🌐 Documentation Website
+
+This repository includes an English documentation website in `docs/` designed for community learning from beginner to advanced React topics, including React 2026 trends and a built-in light/dark mode toggle.
+
+To preview locally:
+
+```bash
+cd docs
+python3 -m http.server 4173
+```
+
+Then open `http://localhost:4173`.
