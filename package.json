@@ -1,0 +1,11 @@
+{
+  "name": "react-tutorial-2026-docs",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Build helpers for the React Tutorial 2026 documentation site",
+  "scripts": {
+    "build": "node scripts/build-docs.mjs",
+    "clean": "node scripts/build-docs.mjs --clean",
+    "preview": "python3 -m http.server 4173 --directory dist"
+  }
+}
